@@ -1,14 +1,21 @@
 name: Hello World
 run-name: Hello World Workflow
 on:
-  schedule:
-    - cron: "*/5 * * * *"
+  # schedule:
+  #   - cron: "*/5 * * * *"
+  workflow_dispatch: 
 env:
   NAME: Vasim
 jobs:
   hello-job:
     runs-on: ubuntu-latest
+    concurrency: 
+      group: first concurr grp
+      cancel-in-progress: true
     steps:
       - name: Echo text
-        run: 'echo "Hello ${NAME}!"'
-      - run: 'echo "this is great!"'
+        run: echo "Hello ${NAME}!"
+      - run: | 
+          echo "this is great!"
+          sleep 100
+
