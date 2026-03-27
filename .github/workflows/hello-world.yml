@@ -1,9 +1,12 @@
 name: Hello World
 run-name: Hello World Workflow
 'on': push
+env:
+  NAME: Vasim
 jobs:
   hello-job:
     runs-on: ubuntu-latest
     steps:
       - name: Echo text
-        run: 'echo "Hello, world!"'
+        run: 'echo "Hello ${NAME}!"'
+      - run: 'echo "this is great!"'
