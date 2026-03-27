@@ -1,6 +1,7 @@
 name: Hello World
 run-name: Hello World Workflow
-'on': push
+on:
+  workflow_dispatch: 
 env:
   NAME: Vasim
 jobs:
